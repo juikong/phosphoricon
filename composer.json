@@ -1,0 +1,29 @@
+{
+    "name": "juiko/phosphoricon",
+    "version": "1.0.0",
+    "description": "Phosphor Icon Library for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Juiko\\PhosphorIcon\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juiko"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Juiko\\PhosphorIcon\\PhosphorIconServiceProvider"
+            ],
+            "aliases": {
+                "PhosphorIcon": "Juiko\\PhosphorIcon\\Facades\\PhosphorIconFacade"
+            }
+        }
+    }
+}
