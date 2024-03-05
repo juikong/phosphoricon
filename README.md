@@ -57,7 +57,7 @@ import { phosphorIconCustom } from "@/Components/PhosphorIconUtils";
 {icons.map((icon, index) => {
   const IconCustom = phosphorIconCustom(icon);
   return (
-    <IconCustom key={index} className="w-8 h-8" size="16" onClick={() => console.log("Selected Icon: %d", icon.id)}/>
+    <IconCustom key={index} className="w-8 h-8" size="32" onClick={() => console.log("Selected Icon: %d", icon.id)}/>
   );
 })}
 ...
@@ -91,10 +91,14 @@ import { phosphorIcon } from "@/Components/PhosphorIconUtils";
 ...
 ```
 
+## Examples
+
+- [React](https://github.com/juikong/phosphoricon-laravel-react) - Sample React Application
+
 ## Roadmap
 
 - Support for Blade and Vue
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[Phosphor Icons](https://github.com/phosphor-icons) - [MIT](https://choosealicense.com/licenses/mit/)
