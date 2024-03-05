@@ -10,15 +10,11 @@ class PhosphorIconService
     public function getData()
     {
         $phosphorIcon = PhosphorIcon::all();
-        //$phosphorIcon = PhosphorIcon::find(1);
 
         foreach ($phosphorIcon as $icon) {
             $phosphorIconDefs = str_replace("\n", '', $icon->icon_defs);
             $phosphorIconDefs = str_replace(' ', '', $phosphorIconDefs);
             $data = json_decode($phosphorIconDefs);
-            //if ($data === null) {
-            //    return $icon->id;
-            //}
             $result = [];
             foreach ($data as $item) {
                 $resultItem = [
@@ -27,45 +23,16 @@ class PhosphorIconService
                 ];
     
                 if (count($item) > 2) {
-                    if (count($item) > 3) {
-                        $opacityValue = $item[2];
-                        $resultItem["opacity"] = $opacityValue;
-                        $extraValue = $item[3];
-                        $resultItem["extra"] = $extraValue;
-                    } else {
-                        return $icon->id;
-                    }
-                    //$opacityValue = $item[2];
-                    //$resultItem["opacity"] = $opacityValue;
-                    //$extraValue = $item[3];
-                    //$resultItem["extra"] = $extraValue;
+                    $opacityValue = $item[2];
+                    $resultItem["opacity"] = $opacityValue;
+                    $extraValue = $item[3];
+                    $resultItem["extra"] = $extraValue;
                 }
                 
                 $result[] = $resultItem;
             }
             $icon->icon_defs = $result;
         }
-
-        //    $phosphorIconDefs = str_replace("\n", '', $phosphorIcon->icon_defs);
-        //    $phosphorIconDefs = str_replace(' ', '', $phosphorIconDefs);
-        //    $data = json_decode($phosphorIconDefs);
-        //    $result = [];
-        //    foreach ($data as $item) {
-        //        $resultItem = [
-        //            "type" => $item[0],
-        //            "value" => $item[1]
-        //        ];
-    
-        //        if (count($item) > 2) {
-        //            $opacityValue = $item[2];
-        //            $resultItem["opacity"] = $opacityValue;
-        //            $extraValue = $item[3];
-        //            $resultItem["extra"] = $extraValue;
-        //        }
-                
-        //        $result[] = $resultItem;
-        //    }
-        //    $phosphorIcon->icon_defs = $result;
 
         return $phosphorIcon;
     }
